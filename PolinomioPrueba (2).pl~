@@ -1,0 +1,18 @@
+%polinomio(coef, grado, cont, lista
+polinomio(A,B,B,[A]):-!.
+
+/*polinomio(A,B,B,Lista):-
+    polinomio(A,B,B,[A|Lista]).*/ /*Cuando el contador alcanza el tamaño de B es cuando agregamos el coeficiente A en la lista*/
+
+polinomio(A,B,X,[Y|Lista]):-
+    X =\= B,
+    X1 is X+1,
+    Y is 0,
+    polinomio(A,B,X1, Lista). /*Aumentamos el contador que es X*/
+
+constructor(A,B):-
+    polinomio(A,B, 0, Pol),
+    write(Pol),!.
+
+
+
